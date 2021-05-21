@@ -18,7 +18,7 @@ class StaffController extends Controller
     public function index()
     {
         $stfs=StaffModel::all();
-        return view('admin\ManageStaff',compact('stfs'));
+        return view('ManageStaff',compact('stfs'));
     }
 
     /**
@@ -28,7 +28,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-        return view('admin\AddStaff');
+        return view('AddStaff');
     }
 
     /**
@@ -110,7 +110,7 @@ class StaffController extends Controller
     public function edit($id)
     {
         $stf=StaffModel::find($id);
-        return view('admin\EditStaff',compact('stf'));
+        return view('EditStaff',compact('stf'));
     }
 
     /**

@@ -96,7 +96,7 @@ class LoginController extends Controller
         
         $registers=LoginModel::all();
         $data=['LoggedUserinfo'=>LoginModel::where('id','=',session('loggeduser'))->first()];
-        return view('admin\AdminHome',compact('registers'),$data);
+        return view('AdminHome',compact('registers'),$data);
     }
 
     public function staffHomeView(Request $request)
