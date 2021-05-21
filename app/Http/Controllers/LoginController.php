@@ -52,7 +52,7 @@ class LoginController extends Controller
     }
     public function createadm()
     {
-        return view('admin\adminsignup');
+        return view('adminsignup');
     }
 
 
