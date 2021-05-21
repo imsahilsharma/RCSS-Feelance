@@ -47,10 +47,10 @@ Route::group(['middleware'=>['LoginMiddleware']],function()
 Route::post('/log',[LoginController::class,'check']);
 
 //Route::get('/StudentHome',[StudentController::class,'dues']);
-/*
+
 Route::get('/signup',[LoginController::class,'createadm']);
 Route::post('/ReadAdmin',[LoginController::class,'store']);
-*/
+
 
 Route::get('/AddStaff',[StaffController::class,'create']);
 Route::post('/ReadStaff',[StaffController::class,'store']);

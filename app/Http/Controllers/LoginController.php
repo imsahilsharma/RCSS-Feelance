@@ -37,7 +37,7 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
  
-/*   public function store(Request $request)
+   public function store(Request $request)
     {
         $getemail=request('lemail');
         $getpass=request('lpass');
@@ -54,7 +54,7 @@ class LoginController extends Controller
     {
         return view('admin\adminsignup');
     }
-*/
+
 
     public function check(Request $request)
     {

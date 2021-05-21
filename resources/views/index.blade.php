@@ -129,7 +129,7 @@
 								<p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
 							</header>
 							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">Activate</a></li>
+								<li><a href="/signup" class="button fit primary">Activate</a></li>
 								<li><a href="#" class="button fit">Learn More</a></li>
 							</ul>
 						</div>
