@@ -215,8 +215,8 @@ class PaymentController extends Controller
         {
             $updatedval = DB::table('login_models')
             ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
-            ->where('login_models.id','=',"$logid")
-            ->update(['stud_fee_models.Paid' => $new_paid,'stud_fee_models.Due' => $new_due]);
+            ->update(['stud_fee_models.Paid' => $new_paid,'stud_fee_models.Due' => $new_due])
+            ->where('login_models.id','=',"$logid");
         }
     }
 
