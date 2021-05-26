@@ -147,7 +147,7 @@ class PaymentController extends Controller
         ->get());
 
         $totdue = collect(DB::table('stud_fee_models')
-        ->select(DB::raw('SUM(stud_fee_models.due) as total_due'))
+        ->select(DB::raw('SUM(stud_fee_models.Due) as total_due'))
         ->get());
         
 
@@ -163,7 +163,7 @@ class PaymentController extends Controller
 
         $amt =DB::table('login_models')
         ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
-        ->select('stud_fee_models.due')
+        ->select('stud_fee_models.Due')
         ->where('login_models.id','=',"$logid")
         ->first();
 
@@ -191,7 +191,7 @@ class PaymentController extends Controller
     {
         $stufdue = collect(DB::table('login_models')
         ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
-        ->select('stud_fee_models.paid as fpaid','stud_fee_models.due as fdue')
+        ->select('stud_fee_models.Paid as fpaid','stud_fee_models.Due as fdue')
         ->where('login_models.id','=',"$logid")
         ->first());
 
@@ -209,14 +209,14 @@ class PaymentController extends Controller
             $updatedval = DB::table('login_models')
             ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
             ->where('login_models.id','=',"$logid")
-            ->update(['stud_fee_models.paid' => $new_paid,'stud_fee_models.due' => $new_due,'stud_fee_models.status' => "Paid"]);
+            ->update(['stud_fee_models.Paid' => $new_paid,'stud_fee_models.Due' => $new_due,'stud_fee_models.status' => "Paid"]);
         }
         else
         {
             $updatedval = DB::table('login_models')
             ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
             ->where('login_models.id','=',"$logid")
-            ->update(['stud_fee_models.paid' => $new_paid,'stud_fee_models.due' => $new_due]);
+            ->update(['stud_fee_models.Paid' => $new_paid,'stud_fee_models.Due' => $new_due]);
         }
     }
 
