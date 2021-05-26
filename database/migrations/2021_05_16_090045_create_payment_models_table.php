@@ -18,7 +18,7 @@ class CreatePaymentModelsTable extends Migration
             $table->integer('sid')->unsigned();
             $table->foreign('sid')->references('id')->on('student_models');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('transactionid');
             $table->string('date');
             $table->integer('amount');  
