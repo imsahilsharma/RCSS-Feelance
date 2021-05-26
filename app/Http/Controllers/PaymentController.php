@@ -219,7 +219,7 @@ class PaymentController extends Controller
             ->where('login_models.id','=',"$logid");
         }
     }
-    DB::update('update student set name = ? where id = ?',[$name,$id]);
+    // DB::update('update student set name = ? where id = ?',[$name,$id]);
 
     public function store(Request $request)
     {
