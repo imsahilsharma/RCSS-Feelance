@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;   
 use Illuminate\Http\Request;
 use App\Models\LoginModel;
+use App\Models\ReminderModel;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -49,10 +50,12 @@ class LoginController extends Controller
         $log->password=$getpass;
         $log->utype="Admin";
         $log->save();
+
+        return redirect('/');
     }
     public function createadm()
     {
-        return view('adminsignup');
+        return view('Aadminsignup');
     }
 
 
@@ -96,7 +99,7 @@ class LoginController extends Controller
         
         $registers=LoginModel::all();
         $data=['LoggedUserinfo'=>LoginModel::where('id','=',session('loggeduser'))->first()];
-        return view('AdminHome',compact('registers'),$data);
+        return view('AAdminHome',compact('registers'),$data);
     }
 
     public function staffHomeView(Request $request)
@@ -109,12 +112,9 @@ class LoginController extends Controller
         ->select('staff_models.*')
         ->where('login_models.id','=',"$logid")
         ->get());
-        
-      //  $stufeedues = $stufeedet->flatten();
-        //$stufeedues->all();
-       // dd($stufeedues);
-        
-        return view('staff\StaffHome',['stfdet'=>$stfdet]);  
+    
+        $request-> session()->put('loggeduserid', $stfdet['0']->id);
+        return view('SStaffHome',compact('stfdet'));  
     }
 
     public function studHomeView(Request $request)
@@ -132,11 +132,9 @@ class LoginController extends Controller
         ->where('login_models.id','=',"$logid")
         ->get());
         
-      //  $stufeedues = $stufeedet->flatten();
-        //$stufeedues->all();
-       // dd($stufeedues);
-        
-        return view('student\StudentHome',['stufeedues'=>$stufeedues]);    
+        $msg = ReminderModel::where('sid', '=', $stufeedues['0']->sid)->first();
+       
+        return view('TStudentHome',compact('stufeedues','msg'));    
     }
 
     public function lgout()

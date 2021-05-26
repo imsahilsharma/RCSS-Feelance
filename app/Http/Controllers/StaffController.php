@@ -18,7 +18,7 @@ class StaffController extends Controller
     public function index()
     {
         $stfs=StaffModel::all();
-        return view('ManageStaff',compact('stfs'));
+        return view('AManageStaff',compact('stfs'));
     }
 
     /**
@@ -28,7 +28,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-        return view('AddStaff');
+        return view('AAddStaff');
     }
 
     /**
@@ -110,7 +110,7 @@ class StaffController extends Controller
     public function edit($id)
     {
         $stf=StaffModel::find($id);
-        return view('EditStaff',compact('stf'));
+        return view('AEditStaff',compact('stf'));
     }
 
     /**
@@ -147,5 +147,29 @@ class StaffController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function updatestfpass(Request $request)
+    {
+        $logid = $request->session()->get('loggeduser');
+
+        $cps=DB::table('login_models')
+        ->where('id', '=', $logid)
+        ->first();
+        
+        return view('SChangePassword',compact('cps'));
+
+    }
+
+    public function updtstfpassdb(Request $request)
+    {
+        $logid = $request->session()->get('loggeduser');
+        $getnpass=request('newpass');
+
+        $updatedval = DB::table('login_models')
+            ->join('staff_models', 'login_models.email', '=', 'staff_models.email')
+            ->where('login_models.id','=',"$logid")
+            ->update(['login_models.password' => $getnpass,'staff_models.password' => $getnpass]);
+            return redirect('/stfchangepass')->with('message', 'Password Updated Successfully');
     }
 }

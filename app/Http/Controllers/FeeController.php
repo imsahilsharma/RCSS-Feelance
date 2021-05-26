@@ -16,7 +16,7 @@ class FeeController extends Controller
     public function index()
     {
         $fees=FeeModel::all();
-        return view('staff\ManageFeeStructure',compact('fees'));
+        return view('SManageFeeStructure',compact('fees'));
     }
 
     /**
@@ -26,7 +26,7 @@ class FeeController extends Controller
      */
     public function create()
     {
-        return view('staff\AddFeeStructure');
+        return view('SAddFeeStructure');
     }
 
     /**
@@ -45,7 +45,7 @@ class FeeController extends Controller
             $flattened = $results->flatten();
             $flattened->all();
             
-            return view('staff\AddStudent',['flattened'=>$flattened]);
+            return view('SAddStudent',['flattened'=>$flattened]);
     }
 
     public function store(Request $request)

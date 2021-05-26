@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\PaymentModel;
 use App\Models\StudFeeModel;
+use App\Models\ReminderModel;
 use Carbon\Carbon;
 
 class PaymentController extends Controller
@@ -18,15 +19,79 @@ class PaymentController extends Controller
     public function index()
     {
         $pays=PaymentModel::all();
-        return view('admin\ViewPayment',compact('pays'));
+        return view('AViewPayment',compact('pays'));
     }
 
     public function staffindex()
     {
         $sfpays=PaymentModel::all();
-        return view('staff\StfViewPayment',compact('sfpays'));    
+        return view('SStfViewPayment',compact('sfpays'));    
+    }
+
+    public function feedueindex(Request $request)
+    {
+        $logid = $request->session()->get('loggeduser');
+        $sdes = DB::table('login_models')
+        ->join('staff_models', 'login_models.email', '=', 'staff_models.email')
+        ->select('staff_models.designation as des')
+        ->where('login_models.id','=',"$logid")
+        ->first();
+
+        if(strcmp($sdes->des,"Clerk1")==0) {
+            $dues = DB::table('stud_fee_models')
+                    ->whereIn('course', ['MCA','MSC DA'])
+                    ->get();
+        }
+        else if(strcmp($sdes->des,"Clerk2")==0) {
+            $dues = DB::table('stud_fee_models')
+                    ->whereIn('course', ['BSW','MSW'])
+                    ->get();
+        }
+        else if(strcmp($sdes->des,"Clerk3")==0) {
+            $dues = DB::table('stud_fee_models')
+                    ->whereIn('course', ['BCOM CA','BSC PSYCHOLOGY'])
+                    ->get();
+        }
+        else {
+            echo "<script>
+            alert('Sorry you are Not Allowed to view this page');
+            window.location.href='/StaffHome';
+            </script>";
+        }
+        
+        return view('SViewStudFeeDues',compact('dues'));            
+    }
+
+    public function remindercreate($id)
+    {
+        $remdisp=StudFeeModel::find($id);
+        return view('SReminder',compact('remdisp'));
+    }
+
+    public function reminderstore(Request $request)
+    {
+        $logid = $request->session()->get('loggeduserid');
+        $getsid=request('stuid');
+        $getn=request('stuname');
+        $getmsg=request('stumsg');
+
+        if (ReminderModel::where('sid', '=', $getsid)->exists()) {
+            $updt = DB::table('reminder_models')
+            ->where('reminder_models.sid','=',$getsid)
+            ->update(['reminder_models.staffid' => $logid,'reminder_models.message' => $getmsg]);
+        }
+        else {        
+            $rem = new ReminderModel();
+            $rem->staffid=$logid;
+            $rem->sid=$getsid;
+            $rem->name=$getn;
+            $rem->message=$getmsg;
+            $rem->save();
+        }
+        return redirect('/StfViewDue');
     }
    
+
     public function studindex(Request $request)
     {
         $logid = $request->session()->get('loggeduser');
@@ -37,7 +102,7 @@ class PaymentController extends Controller
         ->where('login_models.id','=',"$logid")
         ->get());
         
-    return view('student\ViewPayment',compact('stpays'));
+    return view('TViewPayment',compact('stpays'));
     }
 
 
@@ -58,7 +123,7 @@ class PaymentController extends Controller
         ->where('login_models.id','=',"$logid")
         ->get());
 
-        return view('student\Report',compact('stud','stpays'));
+        return view('TReport',compact('stud','stpays'));
     
     }
 
@@ -88,7 +153,7 @@ class PaymentController extends Controller
 
         //dd($totfee);
 
-        return view('staff\Report',compact('totfee','totstu','totdue','stf'));
+        return view('SReport',compact('totfee','totstu','totdue','stf'));
     
     }
 
@@ -102,8 +167,7 @@ class PaymentController extends Controller
         ->where('login_models.id','=',"$logid")
         ->first();
 
-        return view('student\Payment',compact('amt'));
-    
+        return view('TPayment',compact('amt'));
     }
 
     /**
@@ -113,7 +177,7 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        return view('student\Payment');
+        return view('TPayment');
     }
 
     /**
@@ -145,7 +209,7 @@ class PaymentController extends Controller
             $updatedval = DB::table('login_models')
             ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
             ->where('login_models.id','=',"$logid")
-            ->update(['stud_fee_models.paid' => $new_paid],['stud_fee_models.due' => $new_due],['stud_fee_models.status' => "Paid"]);
+            ->update(['stud_fee_models.paid' => $new_paid,'stud_fee_models.due' => $new_due,'stud_fee_models.status' => "Paid"]);
         }
         else
         {
@@ -199,7 +263,7 @@ class PaymentController extends Controller
 
     public function psuccess()
     {
-        return view('student\PaySuccess');
+        return view('TPaySuccess');
     }
 
     /**

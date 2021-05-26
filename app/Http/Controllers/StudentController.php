@@ -20,51 +20,50 @@ class StudentController extends Controller
     public function index()
     {
         $stus=StudentModel::all();
-        return view('staff\ManageStudent',compact('stus'));
+        return view('SManageStudent',compact('stus'));
 
     }
 
     public function admViewStud()
     {
         $stus=StudentModel::all();
-        return view('admin\ViewStudent',compact('stus'));
+        return view('AViewStudent',compact('stus'));
 
     }
 
+    /*
     public function dues()
     {
         
-        /*$dues = DB::table('student_models')
+        $dues = DB::table('student_models')
             ->join('fee_models', 'student_models.course', '=', 'fee_models.course')
             ->select('student_models.name', 'student_models.email','fee_models.total')
             ->where('email','LIKE','mca1@%')
             ->get();
-            $flattened = $dues->flatten();
-            $flattened->all();
+        $flattened = $dues->flatten();
+        $flattened->all();
             
-            $a="Print";
-            $value = $flattened->pluck('email');
-            echo "<script>alert('hello.$value.Hello$a.$flattened')</script>";
+        $a="Print";
+        $value = $flattened->pluck('email');
+        echo "<script>alert('hello.$value.Hello$a.$flattened')</script>";
 			
         $results = collect(DB::table('student_models')
             ->select('name','course as student_course')
             ->where('email','LIKE','mca1@%')
             ->get());
 
-            $flattened = $results->flatten();
+        $flattened = $results->flatten();
 
-            $flattened->all();
-            
-          $chunks=$results->chunk(1);
-           dd($chunks);
-        return view('student\StudentHome',['flattened'=>$flattened]); */
+        $flattened->all();
+        
+        $chunks=$results->chunk(1);
+        dd($chunks);
+        return view('student\StudentHome',['flattened'=>$flattened]); 
 
         $studues=StudFeeModel::all();
-        return view('student\StudentHome',compact('studues'));
-
-        
+        return view('student\StudentHome',compact('studues'));        
     }
-
+    */
 
     
     /**
@@ -74,7 +73,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('staff\AddStudent');
+        return view('SAddStudent');
     }
 
     /**
@@ -170,7 +169,7 @@ class StudentController extends Controller
         ->where('login_models.id','=',"$logid")
         ->get();
 
-        return view('student/ViewFeeStructure',compact('fee'));
+        return view('TViewFeeStructure',compact('fee'));
     }
 
 
@@ -194,7 +193,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $stus=StudentModel::find($id);
-        return view('staff\EditStudent',compact('stus'));
+        return view('SEditStudent',compact('stus'));
     }
 
     /**
@@ -221,6 +220,29 @@ class StudentController extends Controller
         return redirect('/ManageStud');
     }
 
+    public function updatepass(Request $request)
+    {
+        $logid = $request->session()->get('loggeduser');
+
+        $cps=DB::table('login_models')
+        ->where('id', '=', $logid)
+        ->first();
+        
+        return view('TChangePassword',compact('cps'));
+
+    }
+
+    public function updtpassdb(Request $request)
+    {
+        $logid = $request->session()->get('loggeduser');
+        $getnpass=request('newpass');
+
+        $updatedval = DB::table('login_models')
+            ->join('student_models', 'login_models.email', '=', 'student_models.email')
+            ->where('login_models.id','=',"$logid")
+            ->update(['login_models.password' => $getnpass,'student_models.password' => $getnpass]);
+            return redirect('/changepass')->with('message', 'Password Updated Successfully');
+    }
     /**
      * Remove the specified resource from storage.
      *

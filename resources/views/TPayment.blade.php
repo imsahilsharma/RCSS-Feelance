@@ -37,8 +37,8 @@
                                 <div class="form-group row">
                                     <label class="col-md-12">Card Expiry</label>
                                     <div class="col-md-4">
-                                        <select class="form-control" name="cc_exp_mo" size="0">
-                                            <option selected="true" disabled="disabled">- Month -</option>
+                                        <select class="form-control" name="cc_exp_mo" size="0" >
+                                            <option selected="true" disabled="disabled" >- Month -</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
                                             <option value="03">03</option>
@@ -68,6 +68,7 @@
                                         <input type="password" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required="" placeholder="CVV">
                                     </div>
                                 </div>
+                                
                                 <div class="form-group row">
                                     <div class="col-4 col-12-small">
                                         <label for="fullpay">Full Payment</label>									    
@@ -75,7 +76,7 @@
 							    	</div>
                                     <div class="col-4 col-12-small">
                                         <label for="custompay">Custom Pay</label>
-										<input type="radio" name="payoption" id="custompay" value="" onclick="setText('custompay')" checked>
+										<input type="radio" name="payoption" id="custompay" value="" onclick="setText('custompay');" checked>
 									</div>
                                 </div>
                                 <div class="row">
@@ -84,9 +85,9 @@
                                 <div class="form-inline">
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text">Rs.</span></div>
-                                        <input type="text" name="payamt" class="form-control text-right" id="exampleInputAmount" onblur="checkTextField(this);" placeholder="X X X X" required>
+                                        <input type="text" name="payamt" class="form-control text-right" id="exampleInputAmount" onkeyup='check();' placeholder="X X X X" required>
                                         <div class="input-group-append"><span class="input-group-text">.00</span></div>
-                                        <p id="error" style="color: red;"></p>
+                                        <span id='message'></span>
 
                                     </div>
                                 </div>
@@ -96,7 +97,7 @@
                                         <a href="/StudentHome" class="btn btn-danger btn-lg btn-block" style="color: #fff;">Cancel</a>
                                     </div>
                                     <div class="col-md-6">
-                                    <input type="submit" value="Pay" class="btn btn-success btn-lg btn-block">
+                                    <input type="submit" id="myBtn" value="Pay" class="btn btn-success btn-lg btn-block">
                                     </div>
                                 </div>
                             </form>
@@ -106,20 +107,36 @@
                 
                 <p class="copyright" style="text-align:center;padding:40px 0;color:#fff">Developed by DUMMY DESIGNS</a></p>
                 <script type="text/javascript">
+                    var today, someday;
+                    var exMonth=document.getElementById("exMonth");
+                    var exYear=document.getElementById("exYear");
+                    today = new Date();
+                    someday = new Date();
+                    someday.setFullYear(exYear, exMonth, 1);
+
+                    if (someday < today) {
+                        alert("The expiry date is before today's date. Please select a valid expiry date");
+                    return false;
+                    }
+                    
+                    
                     function setText(target) {
                         var txt = document.getElementById(target);
                         var temp = txt.value;
                         var tf = document.getElementById("exampleInputAmount");
                         tf.value = temp;
-                        if (txt === "custompay") {
-                            tf.focus();
-                        }
                     }	
 
-                    function checkTextField(field) {
-                        document.getElementById("error").innerText =
-                        (field.value <= {{$amt->due}}) ? "" : "Amount is exceeding Due";
+                    var check = function() {
+                        if (document.getElementById('exampleInputAmount').value <= {{$amt->due}} ) {
+                            document.getElementById('message').style.color = 'green';
+                            document.getElementById('message').innerHTML = 'Valid Amount';
+                        } else {
+                            document.getElementById('message').style.color = 'red';
+                            document.getElementById('message').innerHTML = 'Invalid Amount: Exceeding Due';
+                            document.getElementById("myBtn").disabled = true;
+                        }
                     }
-</script> 
+                </script> 
         </body>
 </html>
