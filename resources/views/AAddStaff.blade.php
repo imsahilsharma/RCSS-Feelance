@@ -78,7 +78,7 @@
 											</div>
 
 											<div class="col-12"  style="text-align: center;">
-												<select name="sdesign" id="sdesign" required>
+												<select name="sdesig" id="sdesig" required>
 													<option selected="true" disabled="disabled">- Select Designation -</option>
 													<option value="Clerk1">Clerk 1 (MCA & MSc DA)</option>
 													<option value="Clerk2">Clerk 2 (BSW & MSW)</option>
