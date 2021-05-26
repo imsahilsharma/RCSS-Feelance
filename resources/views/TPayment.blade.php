@@ -128,7 +128,7 @@
                     }	
 
                     var check = function() {
-                        if (document.getElementById('exampleInputAmount').value <= {{$amt->due}} ) {
+                        if (document.getElementById('exampleInputAmount').value <= {{$amt->Due}} ) {
                             document.getElementById('message').style.color = 'green';
                             document.getElementById('message').innerHTML = 'Valid Amount';
                         } else {
