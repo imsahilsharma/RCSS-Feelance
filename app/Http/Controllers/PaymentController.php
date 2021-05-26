@@ -213,13 +213,13 @@ class PaymentController extends Controller
         }
         else
         {
-            $updatedval = DB::table('login_models')
-            ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
+            $updatedval = DB::table('stud_fee_models')
+            ->join('login_models', 'login_models.email', '=', 'stud_fee_models.email')
             ->update(['stud_fee_models.Paid'=>"$new_paid",'stud_fee_models.Due'=>"$new_due"])
             ->where('login_models.id','=',"$logid");
         }
     }
-
+    DB::update('update student set name = ? where id = ?',[$name,$id]);
 
     public function store(Request $request)
     {
