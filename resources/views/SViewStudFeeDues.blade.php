@@ -27,8 +27,8 @@
 													<td>{{ $due->name }}</td>
 													<td>{{ $due->email }}</td>
 													<td>{{ $due->course }}</td>
-													<td>{{ $due->Paid }}</td>
-													<td>{{ $due->Due }}</td>
+													<td>{{ $due->paid }}</td>
+													<td>{{ $due->due }}</td>
 													<td><a href="/reminder/{{$due->id}}/" style="color: #1a1aff;">Send</a></td>
 												</tr>
 											@endforeach

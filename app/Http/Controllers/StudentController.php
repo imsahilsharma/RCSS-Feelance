@@ -143,8 +143,8 @@ class StudentController extends Controller
         $stfee->glevel=$getglvl;
         $stfee->course=$getcourse;
         $stfee->tot_fees=$gettot->total;
-        $stfee->Paid=0;
-        $stfee->Due=$gettot->total;
+        $stfee->paid=0;
+        $stfee->due=$gettot->total;
         $stfee->save();
 
         return redirect('/ManageStud');
