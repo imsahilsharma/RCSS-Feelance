@@ -40,7 +40,7 @@
 	<label style="color: #000851;">Total Payment Received</label>
 </div>
 <div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color: #000851;">{{$tottxt['0']->total_txn}}</label>
+								<label style="color: #000851;">{{$tottxn['0']->total_txn}}</label>
 							</div>
 
 							

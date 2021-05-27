@@ -10,7 +10,7 @@
 							<div class="inner">
 					
 							<a href="/StaffPrintRep">Course Wise</a>	
-							<a href="">Date Wise</a>	
+							<a href="#">Date Wise</a>	
 							<a href="/StaffPaymentRep">Student</a>	
 							
 					
