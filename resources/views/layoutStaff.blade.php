@@ -25,7 +25,7 @@
 											<li><a href="/ManageStud">Student</a></li>
 											<li><a href="/ManageFee">Fees Structure</a></li>
 											<li><a href="/StfViewDue">View Fee Dues</a></li>
-											<li><a href="/StaffRep">Report</a></li>
+											<li><a href="/StaffReport">Report</a></li>
 											<li><hr></li>
 											<li><a href="/stfchangepass">Change Password</a></li>
 											<li><a href="/logout">Logout</a></li>

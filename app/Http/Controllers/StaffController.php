@@ -178,9 +178,9 @@ class StaffController extends Controller
             return redirect('/stfchangepass')->with('message', 'Password Updated Successfully');
     }
 
-    public function stfReport()
+    public function stfreport()
     {
-        return view('SReportHome');
+        return view('SRep');
     }
 
     public function staffviewreport()

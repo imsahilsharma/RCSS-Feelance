@@ -77,7 +77,7 @@ Route::get('/feedetail/{id}/del',[FeeController::class,'del']);
 
 Route::get('/StfViewPay',[PaymentController::class,'staffindex']);
 Route::get('/StfViewDue',[PaymentController::class,'feedueindex']);
-Route::get('/StaffRep',[StaffController::class,'stfReport']);
+Route::get('/StaffReport',[StaffController::class,'stfreport']);
 Route::get('/StaffPrintRep',[StaffController::class,'staffviewreport']);
 Route::get('/StaffPaymentRep',[StaffController::class,'staffviewreport2']);
 
