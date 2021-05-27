@@ -75,6 +75,7 @@
 												<tr style="text-align:center;">
 													<td>{{ $pay->course }}</td>
 													<td>{{ $pay->total_fee }}</td>
+													<td>{{ $pay->total_cdue }}</td>
 												</tr>
 											@endforeach
 											</tbody>											
