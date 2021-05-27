@@ -22,8 +22,8 @@ class CreateStudFeeModelsTable extends Migration
             $table->string("glevel",20);
             $table->string("course",20);
             $table->integer('tot_fees');  
-            $table->integer('Paid');
-            $table->integer('Due');
+            $table->integer('paid');
+            $table->integer('due');
             $table->string('status')->default('Due');
             $table->timestamps();
         });
