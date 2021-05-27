@@ -29,12 +29,25 @@
 						    
 							<div class="row gtr-uniform">
 
+						@php
+                            $amt=0;
+                            $count=0;
+                        @endphp
+                            @foreach ($feeamt as $tot)
+                            @php
+                            	$amt=$amt+$tot->amount;
+                            	$count=$count+1;
+                            @endphp
+                        @endforeach
+                            
+
+
 
 <div class="col-6 col-12-xsmall" style="text-align: center;">
 	<label style="color: #000851;">Total Fee Received</label>
 </div>
 <div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color: #000851;">{{$totfee['0']->total_fee}}</label>
+								<label style="color: #000851;">{{$amt}}</label>
 							</div>
 
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
@@ -48,7 +61,7 @@
 	<label style="color: red;">Total Fee Due</label>
 </div>
 <div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color: red;">{{$totdue['0']->total_due}}</label>
+								<label style="color: red;">{{$count}}</label>
 							</div>
 							</div>
 							<br><br>
@@ -62,12 +75,7 @@
 												</tr>
 											</thead>
 											<tbody>
-											@foreach($stf as $pay)
-												<tr style="text-align:center;">
-													<td>{{ $pay->course }}</td>
-													<td>{{ $pay->total_fee }}</td>
-												</tr>
-											@endforeach
+											
 											</tbody>											
 										</table>
 									</div>

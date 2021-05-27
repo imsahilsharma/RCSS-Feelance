@@ -132,28 +132,26 @@ class PaymentController extends Controller
     {
         
 
-        $stf = collect(DB::table('payment_models')
-        ->join('stud_fee_models', 'payment_models.email', '=', 'stud_fee_models.email')
-        ->select('stud_fee_models.course',DB::raw('SUM(payment_models.amount) as total_fee'))
-        ->groupBy('course')
-        ->get());
+        // $stf = collect(DB::table('payment_models')
+        // ->join('stud_fee_models', 'payment_models.email', '=', 'stud_fee_models.email')
+        // ->select('stud_fee_models.course',DB::raw('SUM(payment_models.amount) as total_fee'))
+        // ->groupBy('course')
+        // ->get());
 
-        $totfee = collect(DB::table('payment_models')
-        ->select(DB::raw('SUM(payment_models.amount) as total_fee'))
+        $feeamt = collect(DB::table('payment_models')
+        ->select('amount')
         ->get());
 
         $totstu = collect(DB::table('student_models')
         ->select(DB::raw('count(*) as total_stu'))
         ->get());
 
-        $totdue = collect(DB::table('stud_fee_models')
-        ->select(DB::raw('SUM(stud_fee_models.Due) as total_due'))
-        ->get());
-        
-
+        $dueamt = collect(DB::table('stud_fee_models')
+        ->select('Due')
+        ->get());        
         //dd($totfee);
 
-        return view('SReport',compact('totfee','totstu','totdue','stf'));
+    return view('SReport',compact('feeamt','totstu','due'));
     
     }
 
