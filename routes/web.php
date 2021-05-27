@@ -78,6 +78,8 @@ Route::get('/feedetail/{id}/del',[FeeController::class,'del']);
 Route::get('/StfViewPay',[PaymentController::class,'staffindex']);
 Route::get('/StfViewDue',[PaymentController::class,'feedueindex']);
 Route::get('/StaffPrintRep',[PaymentController::class,'staffviewreport']);
+Route::get('/StaffPaymentRep',[PaymentController::class,'staffviewreport2']);
+
 
 Route::get('/reminder/{id}/',[PaymentController::class,'remindercreate']);
 Route::post('/feereminder',[PaymentController::class,'reminderstore']);

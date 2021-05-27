@@ -58,6 +58,7 @@
 												<tr>
 													<th style="text-align:center;">COURSE</th>
 													<th style="text-align:center;">TOTAL FEE RECEIVED</th>
+													<th style="text-align:center;">TOTAL FEE DUE</th>
 												</tr>
 											</thead>
 											<tbody>

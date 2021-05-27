@@ -152,7 +152,27 @@ class PaymentController extends Controller
         return view('SReport',compact('totfee','totstu','totdue','stf'));
     
     }
+    public function staffviewreport2()
+    {
+        
 
+        $payment = collect(DB::table('payment_models')
+        ->select('payment_models.*')
+        ->get());
+
+        $totpay = collect(DB::table('payment_models')
+        ->select(DB::raw('SUM(payment_models.amount) as total_pay'))
+        ->get());
+
+        $tottxn = collect(DB::table('payment_models')
+        ->select(DB::raw('count(*) as total_txn'))
+        ->get());
+        
+        
+        
+        return view('SReportPayment',compact('totpay','tottxn','payment'));
+    
+    }
     public function getamt(Request $request)
     {
         $logid = $request->session()->get('loggeduser');
