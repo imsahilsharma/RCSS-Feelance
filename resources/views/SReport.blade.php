@@ -48,7 +48,7 @@
 	<label style="color: red;">Total Fee Due</label>
 </div>
 <div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color: red;">{{$totdue['0']->total_due}}</label>
+								<label style="color: red;">{{}}</label>
 							</div>
 							</div>
 							<br><br>
