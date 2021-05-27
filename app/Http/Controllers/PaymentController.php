@@ -127,7 +127,10 @@ class PaymentController extends Controller
     
     }
 
-
+    public function stfReport()
+    {
+        return view('SReportHome');
+    }
     public function staffviewreport()
     {
         

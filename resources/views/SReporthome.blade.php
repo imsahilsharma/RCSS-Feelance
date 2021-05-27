@@ -9,9 +9,9 @@
 						<section class="wrapper style5">
 							<div class="inner">
 					
-							<a href="">Course Wise</a>	
+							<a href="/StaffPrintRep">Course Wise</a>	
 							<a href="">Date Wise</a>	
-							<a href="">Student</a>	
+							<a href="/StaffPaymentRep">Student</a>	
 							
 					
 							</div>
