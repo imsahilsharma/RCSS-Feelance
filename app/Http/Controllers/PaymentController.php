@@ -127,55 +127,8 @@ class PaymentController extends Controller
     
     }
 
-    public function stfReport()
-    {
-        return view('SReportHome');
-    }
-    public function staffviewreport()
-    {
-        
-
-        $stf = collect(DB::table('stud_fee_models')
-        ->select('stud_fee_models.course',DB::raw('SUM(paid) as total_fee'),DB::raw('SUM(due) as total_cdue'))
-        ->groupBy('course')
-        ->get());
-
-        $totfee = collect(DB::table('payment_models')
-        ->select(DB::raw('SUM(payment_models.amount) as total_fee'))
-        ->get());
-
-        $totstu = collect(DB::table('student_models')
-        ->select(DB::raw('count(*) as total_stu'))
-        ->get());
-        $totdue = collect(DB::table('stud_fee_models')
-        ->select(DB::raw('SUM(stud_fee_models.due) as total_due'))
-        ->get());
-        
-        
-        return view('SReport',compact('totfee','totstu','totdue','stf'));
     
-    }
-    public function staffviewreport2()
-    {
-        
 
-        $payment = collect(DB::table('payment_models')
-        ->select('payment_models.*')
-        ->get());
-
-        $totpay = collect(DB::table('payment_models')
-        ->select(DB::raw('SUM(payment_models.amount) as total_pay'))
-        ->get());
-
-        $tottxn = collect(DB::table('payment_models')
-        ->select(DB::raw('count(*) as total_txn'))
-        ->get());
-        
-        
-        
-        return view('SReportPayment',compact('totpay','tottxn','payment'));
-    
-    }
     public function getamt(Request $request)
     {
         $logid = $request->session()->get('loggeduser');
