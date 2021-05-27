@@ -9,11 +9,19 @@
 						<section class="wrapper style5">
 							<div class="inner">
 							<div style="text-align: center;">
-							<h3><a href="/StaffPrintRep">Course Wise Report</a></h3><br><br>
-							<h3><a href="/StaffPaymentRep">Payment Report (For Auditor and Accountants)</a></h3>
+							<div>
+							<p>REPORT - 1</p>
+							<a href="/AddStud" class="button primary" style="background: #003366; font-size: 16px;">Course Wise (For Clerks use)</a>
+							</div><br>
+							<div>
+							<p>REPORT - 2</p>
+							<a href="/StaffPaymentRep" class="button primary" style="background: #003366; font-size: 16px;">
+							Payment Report (For Auditor and Accountants)</a>
 							</div>
-
-							<form action="/report/show" method='get'>
+							<br><br>
+							<p>REPORT - 3</p>
+							</div>
+						<form action="/report/show" method='get'>
         @csrf
         <div class="row">
            
@@ -23,7 +31,6 @@
                         <input type="date" name='dateStart' class="form-control "/>
                     </div>
             </div>
-
             </div>
             <div class="col-4">
             	<div class="form-group">
@@ -33,10 +40,13 @@
         		</div>            
             </div>
             <div class="col-4">
-            <input type="submit" value='Get Report' class=' btn btn-success'>
+            	<input type="submit" value='Get Report' class="button primary" style="background: #003366; font-size: 16px;">								
             </div>
         </div>
         </form>
+
+		
+							
 					
 							</div>
 						</section>

@@ -33,9 +33,7 @@
 
 
 
-		<form action="/report/show" method='get'>
-        @csrf
-        <div class="row"> 
+		
         <div class="col-12">       
             <table class="myclass">
                 <thead>
@@ -53,14 +51,12 @@
                     $count=0;
                 @endphp                
 @foreach($sales as $s)
-<tr >
    
 <tr style="text-align:center;">
 													<td>{{ $s->transactionid }}</td>
 													<td>{{ $s->date }}</td>
 													<td>{{ $s->amount }}</td>
 												</tr>
-</tr>
 @php
     $amount=$amount+$s->amount;
     $count=$count+1;
@@ -68,20 +64,20 @@
 @endforeach 
 
 @if($sales->count() >0)
-            <div class="alert alert-success">
-            Sales On Date between {{$dateStart}} and {{$dateEnd}} is {{$amount}} and Sale Count is {{$count}}
+            <div class="alert alert-success" style="color: green;">
+           Total Payment Received between Dates {{$dateStart}} and {{$dateEnd}} is {{$amount}} and Transaction Count is {{$count}}<br><br>
 </div>
             @else
-<div class="alert alert-danger">
-No Data Found On  Date between {{$dateStart}} and {{$dateEnd}} 
+<div class="alert alert-danger" style="color: red;">
+No Payments Found for  Dates between {{$dateStart}} and {{$dateEnd}} <br><br>
 </div>
             @endif 
 
 
             
             </tbody>
-            </table>
-            <div style="text-align:center;"><br>
+            </table><br>
+            <div style="text-align:center;">
 			<a href="/StaffHome" class="button primary" onclick="window.print();" style="background: #003366; font-size: 16px;">Download Fee Report</a>
             </div>
            
