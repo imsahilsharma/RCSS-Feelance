@@ -206,9 +206,9 @@ class PaymentController extends Controller
         
         if($new_due == 0)
         {
-            $updatedval = DB::table('login_models')
-            ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
-            ->where('login_models.id','=',"$logid")
+            $updatedval = DB::table('stud_fee_models')
+            ->join('login_models', 'login_models.email', '=', 'stud_fee_models.email')
+            ->where('login_models.id','=',$logid)
             ->update(['stud_fee_models.Paid' =>"$new_paid",'stud_fee_models.Due'=>"$new_due",'stud_fee_models.status'=>"Paid"]);
         }
         else

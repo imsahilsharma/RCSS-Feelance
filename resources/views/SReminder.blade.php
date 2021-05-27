@@ -29,7 +29,7 @@
 												<label for="stumsg">Message</label>
 											</div>
 											<div class="col-6 col-12-xsmall">
-											<textarea name="stumsg" rows="6">This is a reminder message to inform you that you have last 10 Days left to pay your dues. If failed to pay, then strict action can be taken. So, kindly pay the Fee Due amount of Rs{{$remdisp->Due}}/-
+											<textarea name="stumsg" rows="6">This is a reminder message to inform you that you have last 10 Days left to pay your dues. If failed to pay, then strict action can be taken. So, kindly pay the Fee Due amount asap.
 											</textarea>
 											</div>	
 											
