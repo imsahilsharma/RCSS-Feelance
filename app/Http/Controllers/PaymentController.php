@@ -146,14 +146,11 @@ class PaymentController extends Controller
         ->select(DB::raw('count(*) as total_stu'))
         ->get());
 
-        // $totdue = collect(DB::table('stud_fee_models')
-        // ->select(DB::raw('SUM(stud_fee_models.Due) as total_due'))
-        // ->get());
+        $totdue = DB::table('stud_fee_models')
+        ->select('Due')->get();
         
-        dd($totfee);
-        dd($totstu);
-     //   dd($totdue);
-        return view('SReport',compact('totfee','totstu','stf'));
+        
+        return view('SReport',compact('totfee','totstu','totdue','stf'));
     
     }
 

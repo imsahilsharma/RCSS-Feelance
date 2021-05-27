@@ -29,6 +29,15 @@
 						    
 							<div class="row gtr-uniform">
 
+							@php
+                            $amount=0;
+                            @endphp
+                            @foreach ($totdue as $td)
+                            @php
+                            	$amount=$amount+$td->Due;
+                            @endphp
+                            @endforeach
+
 
 <div class="col-6 col-12-xsmall" style="text-align: center;">
 	<label style="color: #000851;">Total Fee Received</label>
@@ -48,7 +57,7 @@
 	<label style="color: red;">Total Fee Due</label>
 </div>
 <div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color: red;">{{}}</label>
+								<label style="color: red;">{{$amount}}</label>
 							</div>
 							</div>
 							<br><br>
