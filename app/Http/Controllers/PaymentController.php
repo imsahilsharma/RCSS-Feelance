@@ -151,7 +151,7 @@ class PaymentController extends Controller
         ->get());        
         //dd($totfee);
 
-    return view('SReport',compact('feeamt','totstu','due'));
+    return view('SReport',compact('feeamt','totstu','dueamt'));
     
     }
 
