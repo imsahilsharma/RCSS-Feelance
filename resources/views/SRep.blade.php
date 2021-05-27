@@ -8,11 +8,11 @@
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
-					
-							<a href="/StaffPrintRep">Course Wise</a>	
-							<a href="#">Date Wise</a>	
-							<a href="/StaffPaymentRep">Student</a>	
-							
+							<div style="text-align: center;">
+							<a href="/StaffPrintRep">Course Wise Report</a>	<br>
+						
+							<a href="/StaffPaymentRep">Payment Report (For Auditor and Accountants)</a>	
+							</div>
 					
 							</div>
 						</section>
