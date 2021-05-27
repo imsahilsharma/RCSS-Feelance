@@ -80,6 +80,7 @@ Route::get('/StfViewDue',[PaymentController::class,'feedueindex']);
 Route::get('/StaffReport',[StaffController::class,'stfreport']);
 Route::get('/StaffPrintRep',[StaffController::class,'staffviewreport']);
 Route::get('/StaffPaymentRep',[StaffController::class,'staffviewreport2']);
+Route::get('/report/show',[StaffController::class,'showRep']);
 
 
 Route::get('/reminder/{id}/',[PaymentController::class,'remindercreate']);

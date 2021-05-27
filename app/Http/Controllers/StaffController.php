@@ -228,4 +228,29 @@ class StaffController extends Controller
         return view('SReportPayment',compact('totpay','tottxn','payment'));
     
     }
+
+
+    public function showRep(Request $req)
+    {
+            $req->validate([ 
+                'dateStart' => 'required',
+                'dateEnd' => 'required'
+            ]);
+    
+           
+            $dateStart = date("Y-m-d H:i:s", strtotime($req->dateStart.' 00:00:00'));
+            $dateEnd = date("Y-m-d H:i:s", strtotime($req->dateEnd.' 23:59:59'));
+    
+            $sales = PaymentModel::whereBetween('updated_at',[$dateStart, $dateEnd])
+                    ->get(); 
+                    
+                
+                   
+            return view('SReportDate')
+            ->with('dateStart',date("m/d/y H:i:s", strtotime($req->dateStart.' 00:00:00')))
+            ->with('dateEnd',date("m/d/y H:i:s", strtotime($req->dateEnd.' 23:59:59')))
+            ->with('sales',$sales);
+        
+    }
+
 }
