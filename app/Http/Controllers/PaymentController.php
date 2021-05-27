@@ -133,7 +133,7 @@ class PaymentController extends Controller
         
 
         $stf = collect(DB::table('stud_fee_models')
-        ->select('stud_fee_models.course',DB::raw('SUM(Paid) as total_fee'),DB::raw('SUM(Due) as total_cdue'))
+        ->select('stud_fee_models.course',DB::raw('SUM(tot_fees) as total_fee'))
         ->groupBy('course')
         ->get());
 
