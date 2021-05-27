@@ -238,9 +238,14 @@ class StudentController extends Controller
         $getnpass=request('newpass');
 
         $updatedval = DB::table('login_models')
-            ->join('student_models', 'login_models.email', '=', 'student_models.email')
             ->where('login_models.id','=',"$logid")
-            ->update(['login_models.password' => $getnpass,'student_models.password' => $getnpass]);
+            ->update(['login_models.password' => $getnpass]);
+
+        $updated = DB::table('student_models')
+            ->join('login_models', 'login_models.email', '=', 'student_models.email')
+            ->where('login_models.id','=',"$logid")
+            ->update(['student_models.password' => $getnpass]);
+
             return redirect('/changepass')->with('message', 'Password Updated Successfully');
     }
     /**

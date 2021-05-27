@@ -97,7 +97,7 @@
                                         <a href="/StudentHome" class="btn btn-danger btn-lg btn-block" style="color: #fff;">Cancel</a>
                                     </div>
                                     <div class="col-md-6">
-                                    <input type="submit" id="myBtn" value="Pay" class="btn btn-success btn-lg btn-block">
+                                    <input type="submit" id="myBtn" value="Pay" class="btn btn-success btn-lg btn-block" disabled>
                                     </div>
                                 </div>
                             </form>
