@@ -7,6 +7,7 @@ use App\Http\Requests\StorePostRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\StaffModel;
 use App\Models\LoginModel;
+use App\Models\PaymentModel;
 
 class StaffController extends Controller
 {
