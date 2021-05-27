@@ -187,7 +187,7 @@ class PaymentController extends Controller
     {
         $stufdue = collect(DB::table('login_models')
         ->join('stud_fee_models', 'login_models.email', '=', 'stud_fee_models.email')
-        ->select('stud_fee_models.Paid as fpaid','stud_fee_models.due as fdue')
+        ->select('stud_fee_models.paid as fpaid','stud_fee_models.due as fdue')
         ->where('login_models.id','=',"$logid")
         ->first());
 
