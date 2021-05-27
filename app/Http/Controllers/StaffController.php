@@ -204,7 +204,7 @@ class StaffController extends Controller
         ->get());
         
         
-        return view('SReport',compact('totfee','totstu','totdue','stf'));
+        return view('SReportCourse',compact('totfee','totstu','totdue','stf'));
     
     }
     public function staffviewreport2()
