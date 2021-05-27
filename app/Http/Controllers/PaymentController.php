@@ -132,11 +132,11 @@ class PaymentController extends Controller
     {
         
 
-        // $stf = collect(DB::table('payment_models')
-        // ->join('stud_fee_models', 'payment_models.email', '=', 'stud_fee_models.email')
-        // ->select('stud_fee_models.course',DB::raw('SUM(payment_models.amount) as total_fee'))
-        // ->groupBy('course')
-        // ->get());
+        $stf = collect(DB::table('payment_models')
+        ->join('stud_fee_models', 'payment_models.email', '=', 'stud_fee_models.email')
+        ->select('stud_fee_models.course',DB::raw('SUM(payment_models.amount) as total_fee'))
+        ->groupBy('course')
+        ->get());
 
         $feeamt = collect(DB::table('payment_models')
         ->select('amount')
@@ -151,7 +151,7 @@ class PaymentController extends Controller
         ->get());        
         //dd($totfee);
 
-    return view('SReport',compact('feeamt','totstu','dueamt'));
+        return view('SReport',compact('feeamt','totstu','due','stf'));
     
     }
 

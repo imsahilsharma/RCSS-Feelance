@@ -75,7 +75,12 @@
 												</tr>
 											</thead>
 											<tbody>
-											
+											@foreach($stf as $pay)
+												<tr style="text-align:center;">
+													<td>{{ $pay->course }}</td>
+													<td>{{ $pay->total_fee }}</td>
+												</tr>
+											@endforeach
 											</tbody>											
 										</table>
 									</div>
