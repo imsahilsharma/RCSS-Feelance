@@ -138,20 +138,22 @@ class PaymentController extends Controller
         ->groupBy('course')
         ->get());
 
-        $feeamt = collect(DB::table('payment_models')
-        ->select('amount')
+        $totfee = collect(DB::table('payment_models')
+        ->select(DB::raw('SUM(payment_models.amount) as total_fee'))
         ->get());
 
         $totstu = collect(DB::table('student_models')
         ->select(DB::raw('count(*) as total_stu'))
         ->get());
 
-        $dueamt = collect(DB::table('stud_fee_models')
-        ->select('Due')
-        ->get());        
+        $totdue = collect(DB::table('stud_fee_models')
+        ->select(DB::raw('SUM(stud_fee_models.Due) as total_due'))
+        ->get());
+        
+
         //dd($totfee);
 
-        return view('SReport',compact('feeamt','totstu','dueamt','stf'));
+        return view('SReport',compact('totfee','totstu','totdue','stf'));
     
     }
 
