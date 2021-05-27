@@ -120,6 +120,7 @@
                         if (document.getElementById('exampleInputAmount').value <= {{$amt->Due}} ) {
                             document.getElementById('message').style.color = 'green';
                             document.getElementById('message').innerHTML = 'Valid Amount';
+                            document.getElementById("myBtn").disabled = false;
                         } else {
                             document.getElementById('message').style.color = 'red';
                             document.getElementById('message').innerHTML = 'Invalid Amount: Exceeding Due';
