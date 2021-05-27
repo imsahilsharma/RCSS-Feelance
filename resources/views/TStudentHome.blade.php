@@ -38,14 +38,14 @@
 								<label style="color: #000851;">Fees Paid(in Rs.)</label>
 							</div>
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color: #000851;">{{$stu->Paid}}</label>
+								<label style="color: #000851;">{{$stu->paid}}</label>
 							</div>
 
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
 								<label style="color:red;">Due(in Rs.)</label>
 							</div>
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color:red;">{{$stu->Due}}</label>
+								<label style="color:red;">{{$stu->due}}</label>
 							</div>
 							@endforeach
 							<div class="col-12" style="text-align:center;">

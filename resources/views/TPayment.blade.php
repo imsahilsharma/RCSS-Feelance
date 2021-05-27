@@ -72,7 +72,7 @@
                                 <div class="form-group row">
                                     <div class="col-4 col-12-small">
                                         <label for="fullpay">Full Payment</label>									    
-                                        <input type="radio" name="payoption" id="fullpay" value="{{ $amt->Due }}" onclick="setText('fullpay');" checked>
+                                        <input type="radio" name="payoption" id="fullpay" value="{{ $amt->due }}" onclick="setText('fullpay');" checked>
 							    	</div>
                                     <div class="col-4 col-12-small">
                                         <label for="custompay">Custom Pay</label>
@@ -117,7 +117,7 @@
                     }	
 
                     var check = function() {
-                        if (document.getElementById('exampleInputAmount').value <= {{$amt->Due}} ) {
+                        if (document.getElementById('exampleInputAmount').value <= {{$amt->due}} ) {
                             document.getElementById('message').style.color = 'green';
                             document.getElementById('message').innerHTML = 'Valid Amount';
                             document.getElementById("myBtn").disabled = false;

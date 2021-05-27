@@ -68,7 +68,7 @@
 							</div>
 
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color: #000851;">{{$st->Paid}}</label>
+								<label style="color: #000851;">{{$st->paid}}</label>
 							</div>
 
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
@@ -76,7 +76,7 @@
 							</div>
 
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
-								<label style="color:red;">{{$st->Due}}</label>
+								<label style="color:red;">{{$st->due}}</label>
 							</div>
 						</div>
                             @endforeach
