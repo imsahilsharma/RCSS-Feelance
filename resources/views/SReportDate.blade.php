@@ -78,7 +78,7 @@ No Payments Found for  Dates between {{$dateStart}} and {{$dateEnd}} <br><br>
             </tbody>
             </table><br>
             <div style="text-align:center;">
-			<a href="/StaffHome" class="button primary" onclick="window.print();" style="background: #003366; font-size: 16px;">Download Fee Report</a>
+			<a href="/StaffReport" class="button primary" onclick="window.print();" style="background: #003366; font-size: 16px;">Download Fee Report</a>
             </div>
            
            

@@ -11,12 +11,12 @@
 							<div style="text-align: center;">
 							<div>
 							<p>REPORT - 1</p>
-							<a href="/AddStud" class="button primary" style="background: #003366; font-size: 16px;">Course Wise (For Clerks use)</a>
-							</div><br>
+							<a href="/StaffPrintRep" class="button primary" style="background: #003366; font-size: 16px;">Course Wise (For Clerks use)</a>
+							</div><br><br><br>
 							<div>
 							<p>REPORT - 2</p>
 							<a href="/StaffPaymentRep" class="button primary" style="background: #003366; font-size: 16px;">
-							Payment Report (For Auditor and Accountants)</a>
+							Payment Report (For Auditor and Accountants)</a><br>
 							</div>
 							<br><br>
 							<p>REPORT - 3</p>

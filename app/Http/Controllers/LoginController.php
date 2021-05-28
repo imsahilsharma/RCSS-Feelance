@@ -191,4 +191,40 @@ class LoginController extends Controller
     {
         //
     }
+
+    public function fpcreate()
+    {
+        return view('ForgotPass');
+    }
+   
+    public function fpcheck(Request $request)
+    {
+        $staff="Staff";
+        $stud="Student";
+        $getnpass=request('newpass');
+        $getmail=request('email');
+
+        $chck= LoginModel::where('email', '=', $getmail)->first();
+        if (!$chck) {
+            return back()->with('fail', 'Error: Invalid Email ID');
+        } else {
+            $updatedval = DB::table('login_models')
+            ->where('login_models.email','=',"$getmail")
+            ->update(['login_models.password' => $getnpass]);
+
+            if (strcmp($staff, $chck->utype)==0) {
+                $updated = DB::table('staff_models')
+                ->where('staff_models.email','like',"$getmail")
+                ->update(['staff_models.password' => $getnpass]);
+            }     
+            else if (strcmp($stud, $chck->utype)==0) {
+                $updated = DB::table('student_models')
+                ->where('student_models.email','like',"$getmail")
+                ->update(['student_models.password' => $getnpass]);
+            } 
+            return redirect('/forgotpass')->with('message', 'Password Updated Successfully');
+    
+        }
+    }
+   
 }

@@ -99,3 +99,9 @@ Route::get('/ViewFee',[StudentController::class,'feev']);
 Route::get('/PrintRep',[PaymentController::class,'studviewreport']);
 Route::get('/changepass',[StudentController::class,'updatepass']);
 Route::post('/pchange',[StudentController::class,'updtpassdb']);
+
+
+Route::get('/forgotpass',[LoginController::class,'fpcreate']);
+Route::post('/submitfpass',[LoginController::class,'fpcheck']);
+
+

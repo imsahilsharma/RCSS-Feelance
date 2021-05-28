@@ -174,7 +174,7 @@ class StaffController extends Controller
         $updated = DB::table('staff_models')
             ->join('login_models', 'login_models.email', '=', 'staff_models.email')
             ->where('login_models.id','=',"$logid")
-            ->update(['login_models.password' => $getnpass,'staff_models.password' => $getnpass]);
+            ->update(['staff_models.password' => $getnpass]);
 
             return redirect('/stfchangepass')->with('message', 'Password Updated Successfully');
     }
