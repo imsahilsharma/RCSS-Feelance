@@ -96,10 +96,21 @@ class LoginController extends Controller
 
     public function adminHomeView()
     {
+        $data=LoginModel::where('id','=',session('loggeduser'))->first();
         
-        $registers=LoginModel::all();
-        $data=['LoggedUserinfo'=>LoginModel::where('id','=',session('loggeduser'))->first()];
-        return view('AAdminHome',compact('registers'),$data);
+        $totstu = collect(DB::table('student_models')
+        ->select(DB::raw('count(*) as total_stu'))
+        ->get());
+
+        $totstf = collect(DB::table('staff_models')
+        ->select(DB::raw('count(*) as total_stf'))
+        ->get());
+
+        $totfee = collect(DB::table('fee_models')
+        ->select(DB::raw('count(*) as total_fee'))
+        ->get());
+
+        return view('AAdminHome',compact('data','totstu','totstf','totfee'));
     }
 
     public function staffHomeView(Request $request)

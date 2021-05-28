@@ -33,9 +33,10 @@
 							</div>	
 							@endif
 							@if(Session::get('fail'))
-            <div class="alert alert-danger">
+							<div class="col-12 col-12-xsmall" style="text-align: center; background:#f78e69;">
+    							<div class="alert alert-success" style="color: #650d1b;">
             {{Session::get('fail')}}
-            </div>
+            </div></div>
             @endif
 							<form action="\submitfpass" method="post">
 							{{csrf_field()}}

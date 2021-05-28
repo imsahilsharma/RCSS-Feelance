@@ -60,13 +60,22 @@
 												<input type="text" name="sname" value="{{$stf->name}}" placeholder="Enter Staff Name" style="text-align:center;" required/>
 											</div>
 								
-											<div class="col-6 col-12-xsmall">
-												<input type="text" name="sdesig" value="{{$stf->designation}}" placeholder="Enter Designation" style="text-align:center;" required/>
-											</div>
-											
 											<div class="col-12 col-12-xsmall">
 												<input type="text" name="sphone" value="{{$stf->phone}}" placeholder="Phone Number" style="text-align:center;" required/>
 											</div>
+
+											<div class="col-12"  style="text-align: center;">
+												<select name="sdesig" id="sdesig" required>
+													<option selected="true" disabled="disabled">- Select Designation -</option>
+													<option value="Clerk1">Clerk 1 (MCA & MSc DA)</option>
+													<option value="Clerk2">Clerk 2 (BSW & MSW)</option>
+													<option value="Clerk3">Clerk 3 (BCom CA & BSc Psy) </option>
+													<option value="Cashier">Cashier</option>
+													<option value="Auditor">Auditor</option>
+													<option value="Accountant">Accountant</option>
+												</select>
+											</div>				
+											
 									
 															
 											
