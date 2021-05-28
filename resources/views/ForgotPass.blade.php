@@ -34,21 +34,21 @@
 								<label style="color: #000851;">Enter Your Email ID</label>
 							</div>
 							<div class="col-12 col-12-xsmall" style="text-align: center;">
-								<input type="eamil" name="email" style="text-align:center;" />
+								<input type="email" name="email" style="text-align:center;" />
 							</div>
 
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
 								<label style="color: #000851;">New Password</label>
 							</div>
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
-								<input type="password" name="newpass" id="newpass" style="text-align:center;" onkeyup='comp_pass();' disabled/>
+								<input type="password" name="newpass" id="newpass" style="text-align:center;" onkeyup='comp_pass();' />
 							</div>
 
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
 								<label style="color: #000851;">Confirm Password</label>
 							</div>
 							<div class="col-6 col-12-xsmall" style="text-align: center;">
-								<input type="password" name="cnfpass" id="cnfpass" style="text-align:center;" onkeyup='comp_pass();' disabled/>
+								<input type="password" name="cnfpass" id="cnfpass" style="text-align:center;" onkeyup='comp_pass();' />
 								<span id='message'></span>
 							</div>
 
