@@ -11,8 +11,17 @@
 						<section class="wrapper style5">
 							<div class="inner">
 
-								<h3>Lorem ipsum dolor</h3>
-								<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+							<div style="text-align: left;">
+							<br>
+							<p>Check Out New Payment Transaction, <a href="/StfViewPay" >Click here!!</a></p>
+							<br>
+							<p>For Checking Students Fee Dues, <a href="/StfViewDue" >Click here!!</a></p>
+							<br>
+							<p>Or else Generate Report with New Data, <a href="/StaffReport" >Click here!!</a></p>
+						
+							
+							
+							</div>
 
 							</div>
 						</section>

@@ -60,7 +60,7 @@
 												<input type="text" name="sname" value="{{$stf->name}}" placeholder="Enter Staff Name" style="text-align:center;" required/>
 											</div>
 								
-											<div class="col-12 col-12-xsmall">
+											<div class="col-6 col-12-xsmall">
 												<input type="text" name="sphone" value="{{$stf->phone}}" placeholder="Phone Number" style="text-align:center;" required/>
 											</div>
 
