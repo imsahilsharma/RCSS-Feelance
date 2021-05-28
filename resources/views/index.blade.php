@@ -41,7 +41,7 @@
 			</div>
 			<a href="#one" class="more scrolly">Know More</a>
 		</section>
-
+		
 	<!-- One -->
 	<section id="one" class="wrapper style1 special">
 		<div class="inner">
@@ -60,7 +60,7 @@
 	</section>
 
 	<!-- Two -->
-	<section id="two" class="wrapper alt style2">
+	<!-- <section id="two" class="wrapper alt style2">
 						<section class="spotlight">
 							<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
 								<h2>Magna primis lobortis<br />
@@ -84,7 +84,6 @@
 						</section>
 					</section>
 
-				<!-- Three -->
 					<section id="three" class="wrapper style3 special">
 						<div class="inner">
 							<header class="major">
@@ -119,10 +118,8 @@
 								</li>
 							</ul>
 						</div>
-					</section>
-
-				<!-- CTA -->
-					<section id="cta" class="wrapper style4">
+					</section> 			 -->
+					<!-- <section id="cta" class="wrapper style4"  style="background-image: url(https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGVkdWNhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);background-repeat: no-repeat; background-size: cover;">
 						<div class="inner">
 							<header>
 								<h2>Arcue ut vel commodo</h2>
@@ -133,7 +130,7 @@
 								<li><a href="#" class="button fit">Learn More</a></li>
 							</ul>
 						</div>
-					</section>
+					</section> -->
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -145,7 +142,7 @@
 							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<ul class="copyright">
-							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; All Rights Reserved</li><li>Designed by: Sahil Sharma as Mini Project in MCA</a></li>
 						</ul>
 					</footer>
 
