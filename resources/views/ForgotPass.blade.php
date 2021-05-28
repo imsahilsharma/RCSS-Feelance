@@ -25,7 +25,18 @@
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
-							
+							@if(session()->has('message'))
+							<div class="col-12 col-12-xsmall" style="text-align: center; background:#ccf5ac;">
+    							<div class="alert alert-success" style="color: #11270b;">
+        							{{ session()->get('message') }}
+    							</div>
+							</div>	
+							@endif
+							@if(Session::get('fail'))
+            <div class="alert alert-danger">
+            {{Session::get('fail')}}
+            </div>
+            @endif
 							<form action="\submitfpass" method="post">
 							{{csrf_field()}}
 							<div class="row gtr-uniform">	
