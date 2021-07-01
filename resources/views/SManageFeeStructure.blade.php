@@ -31,7 +31,7 @@
 													<td>{{ $fee->tutionfee }}</td>
 													<td>{{ $fee->vaepfee }}</td>
 													<td>{{ $fee->total }}</td>
-													<td><a href="/feedetail/{{$fee->id}}/del" style="color: #ff1a1a;">Delete</a></td>
+													<td><a href="/feedetail/{{$fee->id}}/del" onclick="return confirm('Are you sure want to Delete? Click OK to Delete')" style="color: #ff1a1a;">Delete</a></td>
 													
 												</tr>
 											@endforeach

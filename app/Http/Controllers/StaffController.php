@@ -85,9 +85,16 @@ class StaffController extends Controller
 
     public function del($id)
     {
-        $s=DB::table('staff_models')
-                ->where('id',$id)
-                ->delete();
+        try {
+            $s=DB::table('staff_models')
+            ->where('id', $id)
+            ->delete();
+           
+        }
+        catch(\Illuminate\Database\QueryException $ex){ 
+           // dd($ex->getMessage());
+            return back()->with('msg1','Error: Invalid Login');
+        }
         return redirect('/ManageStaff');
     }
 

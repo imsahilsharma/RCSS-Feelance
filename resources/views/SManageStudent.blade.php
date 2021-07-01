@@ -31,7 +31,7 @@
 													<td>{{ $stu->phone }}</td>
 													<td>{{ $stu->email }}</td>
 													<td><a href="/studentdetail/{{$stu->id}}/edit" style="color: #1a1aff;">Update</a></td>
-													<td><a href="/studentdetail/{{$stu->id}}/del" style="color: #ff1a1a;">Delete</a></td>
+													<td><a href="/studentdetail/{{$stu->id}}/del" onclick="return confirm('Are you sure want to Delete? Click OK to Delete')" style="color: #ff1a1a;">Delete</a></td>
 													
 												</tr>
 											@endforeach

@@ -104,4 +104,4 @@ Route::post('/pchange',[StudentController::class,'updtpassdb']);
 Route::get('/forgotpass',[LoginController::class,'fpcreate']);
 Route::post('/submitfpass',[LoginController::class,'fpcheck']);
 
-
+?>

@@ -42,7 +42,11 @@
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
-					
+							@if(Session::get('msg1'))
+            <div class="alert alert-danger">
+            {{Session::get('msg1')}}
+            </div>
+            @endif
 						<div class="table-wrapper">
 										<table>
 											<thead>
@@ -66,7 +70,7 @@
 													<td>{{ $stf->phone }}</td>
 													<td>{{ $stf->email }}</td>
 													<td><a href="/staffdetail/{{$stf->id}}/edit" style="color: #1a1aff;">Update</a></td>
-													<td><a href="/staffdetail/{{$stf->id}}/del" style="color: #ff1a1a;">Delete</a></td>
+													<td><a href="/staffdetail/{{$stf->id}}/del" onclick="return confirm('Are you sure want to Delete? Click OK to Delete')" style="color: #ff1a1a;">Delete</a></td>
 												</tr>
 											@endforeach
 											</tbody>											
