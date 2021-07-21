@@ -15,8 +15,8 @@
 							</div><br><br><br>
 							<div>
 							<p>REPORT - 2</p>
-							<a href="/StaffPaymentRep" class="button primary" style="background: #003366; font-size: 16px;">
-							Payment Report (For Auditor and Accountants)</a><br>
+							<a href="/StaffPaymentRep" class="button primary" style="height:auto;background: #003366; font-size: 16px;">
+							Payment Report<br>(For Auditor and Accountants)</a><br>
 							</div>
 							<br><br>
 							<p>REPORT - 3</p>
