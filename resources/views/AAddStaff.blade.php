@@ -43,11 +43,7 @@
 						</header>
 						<section class="wrapper style5" >
 							<div class="inner">
-							@if(Session::get('msg1'))
-            <div class="alert alert-danger" style="text-align: center; color:red;">
-            {{Session::get('msg1')}}
-            </div><br>
-            @endif
+							
 							
 							@if ($errors->any())
     						<div class="alert alert-danger">
@@ -58,6 +54,12 @@
         					</ul>
     						</div>
 							@endif
+
+							@if(Session::get('msg1'))
+            <div class="alert alert-danger" style="text-align: center; color:red;">
+            {{Session::get('msg1')}}
+            </div><br>
+            @endif
 								<form action="/ReadStaff" method="post">
 										<div class="row gtr-uniform">
 											{{ csrf_field() }}
