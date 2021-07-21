@@ -116,7 +116,6 @@ class StudentController extends Controller
         $stu->glevel=$getglvl;
         $stu->course=$getcourse;
         $stu->email=$getemail;
-        $stu->password=$getpass;
         $stu->save();
 
 

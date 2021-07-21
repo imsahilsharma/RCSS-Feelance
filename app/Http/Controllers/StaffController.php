@@ -64,13 +64,13 @@ class StaffController extends Controller
         // echo "<br>";
         // echo $getpass;
        
+        try {
         $stf = new StaffModel();
         $stf->name=$getname;
         $stf->designation=$getdesg;
         $stf->gender=$getgen;
         $stf->phone=$getphon;
         $stf->email=$getemail;
-        $stf->password=$getpass;
         $stf->save();
 
         $slog = new LoginModel();
@@ -79,7 +79,9 @@ class StaffController extends Controller
         $slog->utype="Staff";
         $slog->save();
 
-       
+        } catch (\Illuminate\Database\QueryException $e) {
+            return back()->with('msg1', 'Error: Cannot Be Added. Please try with different Phone no or Email ID');
+        }   
         return redirect('/ManageStaff');
     }
 
