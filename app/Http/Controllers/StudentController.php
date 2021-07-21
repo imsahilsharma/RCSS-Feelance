@@ -92,22 +92,22 @@ class StudentController extends Controller
         $getemail=request('stuemail');
         $getpass=request('stupass');
 
-        echo "<br>";
-        echo $getname;
-        echo "<br>";
-        echo $getgen;
-        echo "<br>";
-        echo $getcourse;
-        echo "<br>";
-        echo $getglvl;
-        echo "<br>";
-        echo $getphon;
-        echo "<br>";
-        echo $getemail;
-        echo "<br>";
-        echo $getpass;
+        // echo "<br>";
+        // echo $getname;
+        // echo "<br>";
+        // echo $getgen;
+        // echo "<br>";
+        // echo $getcourse;
+        // echo "<br>";
+        // echo $getglvl;
+        // echo "<br>";
+        // echo $getphon;
+        // echo "<br>";
+        // echo $getemail;
+        // echo "<br>";
+        // echo $getpass;
        
-
+        try{
         $stu = new StudentModel();
 
         $stu->name=$getname;
@@ -147,15 +147,22 @@ class StudentController extends Controller
         $stfee->due=$gettot->total;
         $stfee->save();
 
+        } catch (\Illuminate\Database\QueryException $e) {
+            return back()->with('msg1', 'Error: Cannot Be Added. Please try with different Phone no or Email ID');
+        } 
         return redirect('/ManageStud');
     }
 
     public function del($id)
     {
+        try {
         $s=DB::table('student_models')
                 ->where('id',$id)
-                ->delete();
-        return redirect('/ManageStud');
+                ->delete();      
+      } catch (\Illuminate\Database\QueryException $e) {
+        return back()->with('msg1','Error: Cannot Delete due to Foreign References.');
+      }
+      return redirect('/ManageStud'); 
     }
 
     public function feev(Request $request)

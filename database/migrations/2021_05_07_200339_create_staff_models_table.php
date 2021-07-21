@@ -18,9 +18,8 @@ class CreateStaffModelsTable extends Migration
             $table->string("name",30);
             $table->string("designation",30);
             $table->string("gender",20);
-            $table->string("phone",12);
+            $table->string("phone",12)->unique();
             $table->string("email",30)->unique();
-            $table->string('password',30);
             $table->timestamps();
         });
     }

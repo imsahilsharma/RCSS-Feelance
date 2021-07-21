@@ -8,6 +8,11 @@
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
+							@if(Session::get('msg1'))
+            <div class="alert alert-danger" style="text-align: center; color:red;">
+            {{Session::get('msg1')}}
+            </div><br>
+            @endif
 					
 						<div class="table-wrapper">
 										<table>
@@ -46,5 +51,4 @@
 								</div>
 						</section>
 					</article>
-
 @endsection

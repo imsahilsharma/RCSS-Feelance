@@ -51,20 +51,20 @@ class StaffController extends Controller
         $getpass=request('spass');
        
 
-        echo "<br>";
-        echo $getname;
-        echo "<br>";
-        echo $getdesg;
-        echo "<br>";
-        echo $getgen;
-        echo "<br>";
-        echo $getphon;
-        echo "<br>";
-        echo $getemail;
-        echo "<br>";
-        echo $getpass;
+        // echo "<br>";
+        // echo $getname;
+        // echo "<br>";
+        // echo $getdesg;
+        // echo "<br>";
+        // echo $getgen;
+        // echo "<br>";
+        // echo $getphon;
+        // echo "<br>";
+        // echo $getemail;
+        // echo "<br>";
+        // echo $getpass;
        
-
+        try {
         $stf = new StaffModel();
         $stf->name=$getname;
         $stf->designation=$getdesg;
@@ -80,6 +80,9 @@ class StaffController extends Controller
         $slog->utype="Staff";
         $slog->save();
 
+        } catch (\Illuminate\Database\QueryException $e) {
+            return back()->with('msg1', 'Error: Cannot Be Added. Please try with different Phone no or Email ID');
+        }   
         return redirect('/ManageStaff');
     }
 
@@ -93,7 +96,7 @@ class StaffController extends Controller
         }
         catch(\Illuminate\Database\QueryException $ex){ 
            // dd($ex->getMessage());
-            return back()->with('msg1','Error: Invalid Login');
+            return back()->with('msg1','Error: Cannot Delete due to Foreign References.');
         }
         return redirect('/ManageStaff');
     }
