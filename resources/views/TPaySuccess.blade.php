@@ -19,7 +19,7 @@
 							
 							<div class="col-12 col-12-xsmall" style="text-align: center;">
 								<br>
-								<p><strong>Your payment is successfully proccessed through your Bank Account.<br><a> Click here</a> to print Receipt.</strong></p>
+								<p><strong>Your payment is successfully proccessed through your Bank Account.<br></strong></p>
 							</div>
 							
 							<div class="col-12" style="text-align:center;">
